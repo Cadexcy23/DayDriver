@@ -126,7 +126,7 @@ bool Artist::init()
 		}
 
 		//Create window
-		gWindow = SDL_CreateWindow("Placeholder", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Artist::SCREEN_WIDTH, Artist::SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+		gWindow = SDL_CreateWindow("DayDriver", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Artist::SCREEN_WIDTH, Artist::SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		Artist artist;
 		SDL_Surface* icon = IMG_Load("Resource/icon.png");
 		SDL_SetWindowIcon(gWindow, icon);
