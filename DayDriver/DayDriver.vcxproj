@@ -70,20 +70,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\SDL\SDL2_image-2.0.4\include;D:\SDL\SDL2_mixer-2.0.2\include;D:\SDL\SDL2-2.28.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SDL\SDL2_image-2.0.4\lib\x64;D:\SDL\SDL2_mixer-2.0.2\lib\x64;D:\SDL\SDL2-2.28.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>packages\sdl2.nuget.2.30.2\build\native\include;packages\sdl2_image.nuget.2.8.2\build\native\include;packages\sdl2_mixer.nuget.2.8.0\build\native\include;$(IncludePath)</IncludePath>
+    <LibraryPath>packages\sdl2.nuget.2.30.2\build\native\lib\x64;packages\sdl2_image.nuget.2.8.2\build\native\lib\x64;packages\sdl2_mixer.nuget.2.8.0\build\native\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\SDL\SDL2_image-2.0.4\include;D:\SDL\SDL2_mixer-2.0.2\include;D:\SDL\SDL2-2.28.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SDL\SDL2_image-2.0.4\lib\x64;D:\SDL\SDL2_mixer-2.0.2\lib\x64;D:\SDL\SDL2-2.28.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>packages\sdl2.nuget.2.30.2\build\native\include;packages\sdl2_image.nuget.2.8.2\build\native\include;packages\sdl2_mixer.nuget.2.8.0\build\native\include;$(IncludePath)</IncludePath>
+    <LibraryPath>packages\sdl2.nuget.2.30.2\build\native\lib\x64;packages\sdl2_image.nuget.2.8.2\build\native\lib\x64;packages\sdl2_mixer.nuget.2.8.0\build\native\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\SDL\SDL2_image-2.0.4\include;D:\SDL\SDL2_mixer-2.0.2\include;D:\SDL\SDL2-2.28.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SDL\SDL2_image-2.0.4\lib\x64;D:\SDL\SDL2_mixer-2.0.2\lib\x64;D:\SDL\SDL2-2.28.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>packages\sdl2.nuget.2.30.2\build\native\include;packages\sdl2_image.nuget.2.8.2\build\native\include;packages\sdl2_mixer.nuget.2.8.0\build\native\include;$(IncludePath)</IncludePath>
+    <LibraryPath>packages\sdl2.nuget.2.30.2\build\native\lib\x64;packages\sdl2_image.nuget.2.8.2\build\native\lib\x64;packages\sdl2_mixer.nuget.2.8.0\build\native\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\SDL\SDL2_image-2.0.4\include;D:\SDL\SDL2_mixer-2.0.2\include;D:\SDL\SDL2-2.28.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SDL\SDL2_image-2.0.4\lib\x64;D:\SDL\SDL2_mixer-2.0.2\lib\x64;D:\SDL\SDL2-2.28.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>packages\sdl2.nuget.2.30.2\build\native\include;packages\sdl2_image.nuget.2.8.2\build\native\include;packages\sdl2_mixer.nuget.2.8.0\build\native\include;$(IncludePath)</IncludePath>
+    <LibraryPath>packages\sdl2.nuget.2.30.2\build\native\lib\x64;packages\sdl2_image.nuget.2.8.2\build\native\lib\x64;packages\sdl2_mixer.nuget.2.8.0\build\native\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -119,7 +119,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -135,7 +135,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -155,7 +155,27 @@
     <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="Mixer.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\sdl2.nuget.redist.2.30.2\build\native\sdl2.nuget.redist.targets" Condition="Exists('..\packages\sdl2.nuget.redist.2.30.2\build\native\sdl2.nuget.redist.targets')" />
+    <Import Project="..\packages\sdl2.nuget.2.30.2\build\native\sdl2.nuget.targets" Condition="Exists('..\packages\sdl2.nuget.2.30.2\build\native\sdl2.nuget.targets')" />
+    <Import Project="..\packages\sdl2_image.nuget.redist.2.8.2\build\native\sdl2_image.nuget.redist.targets" Condition="Exists('..\packages\sdl2_image.nuget.redist.2.8.2\build\native\sdl2_image.nuget.redist.targets')" />
+    <Import Project="..\packages\sdl2_image.nuget.2.8.2\build\native\sdl2_image.nuget.targets" Condition="Exists('..\packages\sdl2_image.nuget.2.8.2\build\native\sdl2_image.nuget.targets')" />
+    <Import Project="..\packages\sdl2_mixer.nuget.redist.2.8.0\build\native\sdl2_mixer.nuget.redist.targets" Condition="Exists('..\packages\sdl2_mixer.nuget.redist.2.8.0\build\native\sdl2_mixer.nuget.redist.targets')" />
+    <Import Project="..\packages\sdl2_mixer.nuget.2.8.0\build\native\sdl2_mixer.nuget.targets" Condition="Exists('..\packages\sdl2_mixer.nuget.2.8.0\build\native\sdl2_mixer.nuget.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\sdl2.nuget.redist.2.30.2\build\native\sdl2.nuget.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2.nuget.redist.2.30.2\build\native\sdl2.nuget.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\sdl2.nuget.2.30.2\build\native\sdl2.nuget.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2.nuget.2.30.2\build\native\sdl2.nuget.targets'))" />
+    <Error Condition="!Exists('..\packages\sdl2_image.nuget.redist.2.8.2\build\native\sdl2_image.nuget.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2_image.nuget.redist.2.8.2\build\native\sdl2_image.nuget.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\sdl2_image.nuget.2.8.2\build\native\sdl2_image.nuget.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2_image.nuget.2.8.2\build\native\sdl2_image.nuget.targets'))" />
+    <Error Condition="!Exists('..\packages\sdl2_mixer.nuget.redist.2.8.0\build\native\sdl2_mixer.nuget.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2_mixer.nuget.redist.2.8.0\build\native\sdl2_mixer.nuget.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\sdl2_mixer.nuget.2.8.0\build\native\sdl2_mixer.nuget.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sdl2_mixer.nuget.2.8.0\build\native\sdl2_mixer.nuget.targets'))" />
+  </Target>
 </Project>
